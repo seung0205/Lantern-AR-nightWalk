@@ -2,6 +2,7 @@
 <img width="815" height="461" alt="등불야행" src="https://github.com/user-attachments/assets/b0eec356-afe9-48a7-8625-0ddbc63a8a8b" />
 수원 행궁동 공방거리를 활성화하기 위해, 
 공방거리 곳곳에 숨은 AR 정령을 포획하고 도감을 채우는 GPS 기반 모바일 게임
+
 ## 개요
 - 기간: 2026.04 – 2026.06
 - 팀: 5인팀(1인 개발)
