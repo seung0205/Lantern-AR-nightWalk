@@ -1,43 +1,37 @@
-# 등불야행: 물의 정령을 찾아서 — 클라이언트 코드
-
-수원 행궁동 상권과 연계한 GPS 기반 AR 수집형 모바일 게임.
-2026 로커톤 최우수상.
-
-Unity 프로젝트의 `Assets/Scripts`만 담았습니다.
-이미지·사운드 등 게임 에셋은 팀 및 협력 업체 저작물이라 제외했습니다.
-
+# 등불야행: 물의 정령을 찾아서
+<img width="815" height="461" alt="등불야행" src="https://github.com/user-attachments/assets/b0eec356-afe9-48a7-8625-0ddbc63a8a8b" />
+수원 행궁동 공방거리를 활성화하기 위해, 
+공방거리 곳곳에 숨은 AR 정령을 포획하고 도감을 채우는 GPS 기반 모바일 게임
 ## 개요
-- 기간: 2026.03 – 진행 중
-- 팀: 5인 융합팀 (컴퓨터공학 1, 산업디자인 3, 일본어학 1)
-- 역할: **팀 내 유일한 개발자 — 클라이언트 전체 구현**
+- 기간: 2026.04 – 2026.06
+- 팀: 5인팀(1인 개발)
+- 역할: 클라이언트 전체 구현
 - 기술: Unity 6 · C# · AR Foundation 6.5.0 (ARCore)
+- **2026 로커톤 최우수상**
+  
+**영상 링크 포함 설명 링크:**
+https://thinkable-pickle-e1c.notion.site/2026-35db6e28cc828002827fcbdb66129809?source=copy_link
 
 ## 게임 흐름
-등불 선택 → GPS 근접 시 알림 → AR 화면 전환 → 정령 포획 → 도감 수집 → 결말
+```mermaid
+graph LR
+  A[등불 선택] --> B[GPS 근접]
+  B -->|OS 알림| C[AR 카메라]
+  C --> D[정령 포획]
+  D --> E[도감 수집]
+  E --> F[결말 해금]
+```
+## 발표 자료
+[행동대장_발표자료.pdf](https://github.com/user-attachments/files/31877278/_.pdf)
 
-## 구조
-| 폴더 | 내용 |
-|---|---|
-| `Core/` | 씬 전환 간 상태 유지(GameStateManager), 수집 데이터 JSON 영속화 |
-| `Gps/`, `Lantern/` | 위치 갱신, 실좌표 근접 판정, OS 알림 |
-| `AR/` | AR 세션 상태 확인 후 정령 스폰, 앵커 고정, 포획 |
-| `UI/` | 씬별 부트스트랩, 수집 도감, 현장 시연용 개발 도구 |
-| `Data/`, `Gameplay/` | 정령 데이터 정의와 바인딩 |
+## 담당 내용
+씬 전환 간 상태 관리: DontDestroyOnLoad 싱글톤에 진행상태 보관 + 도감 JSON 관리
+생명주기 기반 AR 정령 배치: 세션이 추적 상태가 된 뒤에만 스폰 + ARAnchor 사용하여 공간 고정
+좌표 판정: 하버사인 구현 + 매 프레임 대신 0.5초 주기 판정
+정령 데이터 설계: 기획자가 코드 없이 정령을 추가, 수정할 수 있도록 ScriptableObject 에셋으로 분리
 
-## 트러블슈팅
-
-### 1. AR 정령이 공간에 고정되지 않음
-AR 세션이 추적을 시작하기 전에는 카메라가 실제 기기 포즈가 아닌
-기본 원점을 보고한다. 그 좌표로 스폰해 위치가 어긋났고,
-트래킹이 켜지는 순간 정령이 튀었다.
-
-- `ARSession.state == SessionTracking`이 된 뒤에만 스폰하도록 게이팅
-- AR 미지원·미설치 기기와 5초 초과 시를 위한 예외 경로 분리
-- 트래킹 보정 시 밀리는 문제는 `ARAnchor`를 만들어 정령을 자식으로
-  붙여 해결 (이후 위치 소유권이 AR 시스템으로 넘어감)
-- 앵커 생성 실패 시 고정 좌표 방식으로 폴백, 포획·씬 이탈 시 앵커 정리
-
-### 2. 특정 기기에서 공유 시트 무반응
-안드로이드 액티비티 실행을 Unity 게임 스레드에서 호출해 조용히 무시됐다.
-`runOnUiThread`로 디스패치하고, 비동기 실행 시점까지 객체가 살아 있도록
-즉시 해제하던 부분을 함께 수정.
+## 기술
+기술 상세 내용은 이미지로 정리했습니다.
+<img width="1920" height="1080" alt="제목을 입력해주세요" src="https://github.com/user-attachments/assets/1800c96b-2e38-4f61-b8a0-5ba8d3e8b851" />
+<img width="1920" height="1080" alt="제목을 입력해주세요  (2)" src="https://github.com/user-attachments/assets/262ca971-0105-464a-8a1f-067c2cf7d5f8" />
+<img width="1920" height="1080" alt="제목을 입력해주세요  (1)" src="https://github.com/user-attachments/assets/7f4656a6-a8b5-4bb2-a44e-915f2e09d4c8" />
