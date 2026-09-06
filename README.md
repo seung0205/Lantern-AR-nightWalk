@@ -26,10 +26,10 @@ graph LR
 [행동대장_발표자료.pdf](https://github.com/user-attachments/files/31877278/_.pdf)
 
 ## 담당 내용
-씬 전환 간 상태 관리: DontDestroyOnLoad 싱글톤에 진행상태 보관 + 도감 JSON 관리
-생명주기 기반 AR 정령 배치: 세션이 추적 상태가 된 뒤에만 스폰 + ARAnchor 사용하여 공간 고정
-좌표 판정: 하버사인 구현 + 매 프레임 대신 0.5초 주기 판정
-정령 데이터 설계: 기획자가 코드 없이 정령을 추가, 수정할 수 있도록 ScriptableObject 에셋으로 분리
+- 씬 전환 간 상태 관리: DontDestroyOnLoad 싱글톤에 진행상태 보관 + 도감 JSON 관리
+- 생명주기 기반 AR 정령 배치: 세션이 추적 상태가 된 뒤에만 스폰 + ARAnchor 사용하여 공간 고정
+- 좌표 판정: 하버사인 구현 + 매 프레임 대신 0.5초 주기 판정
+- 정령 데이터 설계: 기획자가 코드 없이 정령을 추가, 수정할 수 있도록 ScriptableObject 에셋으로 분리
 
 ## 기술
 기술 상세 내용은 이미지로 정리했습니다.
