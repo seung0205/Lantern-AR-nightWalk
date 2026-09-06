@@ -22,6 +22,20 @@ graph LR
   D --> E[도감 수집]
   E --> F[결말 해금]
 ```
+## 🌌 플레이 방법
+
+**1. 등불 대여**
+공방거리에서 라탄 등불을 빌리고 스마트폰을 넣어 이동합니다.
+
+**2. 정령 찾기**
+등불을 들고 움직이다, 공방거리에서 미리 지정된 지점에 가까워지면 알림이 울립니다.
+
+**3. 포획**
+앱을 실행해 카메라를 비추면 실제 공간에 정령이 놓입니다. 다가가 잡으면 도감에 등록됩니다.
+
+**4. 도감과 결말**
+모은 정령은 도감에서 확인할 수 있고, 정령을 모두 포획하면 결말이 해금됩니다.
+
 ## 발표 자료
 [행동대장_발표자료.pdf](https://github.com/user-attachments/files/31877278/_.pdf)
 
@@ -31,8 +45,3 @@ graph LR
 - 좌표 판정: 하버사인 구현 + 매 프레임 대신 0.5초 주기 판정
 - 정령 데이터 설계: 기획자가 코드 없이 정령을 추가, 수정할 수 있도록 ScriptableObject 에셋으로 분리
 
-## 기술
-기술 상세 내용은 이미지로 정리했습니다.
-<img width="1920" height="1080" alt="제목을 입력해주세요" src="https://github.com/user-attachments/assets/1800c96b-2e38-4f61-b8a0-5ba8d3e8b851" />
-<img width="1920" height="1080" alt="제목을 입력해주세요  (2)" src="https://github.com/user-attachments/assets/262ca971-0105-464a-8a1f-067c2cf7d5f8" />
-<img width="1920" height="1080" alt="제목을 입력해주세요  (1)" src="https://github.com/user-attachments/assets/7f4656a6-a8b5-4bb2-a44e-915f2e09d4c8" />
